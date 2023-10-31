@@ -15,16 +15,39 @@ public:
         if(root==NULL){
             return;
         }
-       
-            ino(root->left,ans);
-            ans.push_back(root->val);
-            ino(root->right,ans);  
+        TreeNode* current=root;
+        TreeNode* pre=NULL;
+        while(current!=NULL){
+            if(current->left==NULL){
+                ans.push_back(current->val);
+                current=current->right;
+            }
+            else{
+                pre=current->left;
+                while(pre->right!=NULL && pre->right!=current){
+                    pre=pre->right;
+                }
+                if(pre->right==NULL){
+                    pre->right=current;
+                    current=current->left;
+                }
+                else{
+                    pre->right=NULL;
+                    ans.push_back(current->val);
+                    current=current->right;
+                }
+            }
+        }
+            // ino(root->left,ans);
+            // ans.push_back(root->val);
+            // ino(root->right,ans);  
         
     }
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> ans;
         ino(root,ans);
         return ans;
+
         
     }
 };
