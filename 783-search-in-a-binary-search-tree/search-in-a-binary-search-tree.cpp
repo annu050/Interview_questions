@@ -19,7 +19,7 @@ public:
            return root;
        }
        if(root->val<val){
-           return searchBST(root->right,val);
+            return searchBST(root->right,val);//is returning the pointer from which the entire subtree will be there
        }
        else{
             return searchBST(root->left,val);
