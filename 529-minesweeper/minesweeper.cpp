@@ -1,3 +1,4 @@
+//placement class taught
 class Solution {
 public:
     bool corr(vector<vector<char>> &board,int x,int y){
