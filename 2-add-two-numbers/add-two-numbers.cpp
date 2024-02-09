@@ -10,19 +10,19 @@
  */
 class Solution {
 public:
-    ListNode* reverse(ListNode* root){
-        ListNode* curr=root;
-        ListNode* prev=NULL;
-        ListNode* next;
-        while(curr!=NULL){
-            next=curr->next;
-            curr->next=prev;
-            prev=curr;
-            curr=next;
-        }
-        root=prev;
-        return root;
-    }
+    // ListNode* reverse(ListNode* root){
+    //     ListNode* curr=root;
+    //     ListNode* prev=NULL;
+    //     ListNode* next;
+    //     while(curr!=NULL){
+    //         next=curr->next;
+    //         curr->next=prev;
+    //         prev=curr;
+    //         curr=next;
+    //     }
+    //     root=prev;
+    //     return root;
+    // }
 
     void insertAtTail(ListNode* &head, ListNode* &tail, int val) {
         
@@ -76,31 +76,5 @@ public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode* ans=add(l1,l2);
         return ans;
-        // int k=0,p=0,sum=0;
-        // ListNode* add=NULL; 
-        // // l1=reverse(l1);
-        // // l2=reverse(l2);
-        // while(l1!=NULL){
-        //     k=k*10+l1->val;//30+4=34 340+2=342
-        //     l1=l1->next;
-        // }
-        // while(l2!=NULL){
-        //     p=p*10+l2->val;
-        //     l2=l2->next;
-        // }
-        // sum=k+p;
-        //         add= new ListNode;
-        //         add->next=NULL;
-        //     while(sum>0){
-        //         sum=sum%10;
-        //         add->val=sum;//7 0 8
-        //         sum=sum/10; //80
-        //         add=add->next;
-        //     }
-        
-       
-        // return add;
-
-
     }
 };
