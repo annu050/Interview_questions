@@ -38,3 +38,37 @@ public:
         return lists.front();
     }
 };
+
+
+//2 put in array ad sort then call convert function convert(arr) as this will retun the head of the linked list
+//3 use of priority queue
+// ListNode* mergeKLists(vector<ListNode*>& lists)
+//     {
+//         priority_queue<int,vector<int>,greater<int>>p;
+//         for(int i=0;i<lists.size();i++)
+//         {
+//             ListNode*temp=lists[i];
+//             while(temp!=NULL)
+//             {
+//                 p.push(temp->val);
+//                 temp=temp->next;
+//             }
+//         }  
+//         ListNode*ans=NULL;
+//         ListNode*current=NULL;
+//         if(!p.empty())
+//         {
+//             ans = new ListNode(p.top());
+//             p.pop();
+//             current = ans;
+//         }
+//         while(!p.empty())
+//         {
+//             ListNode*temp=new ListNode(p.top());
+//             current->next=temp;
+//             current=current->next;
+//             p.pop();
+            
+//         }
+//         return ans;
+//     }
