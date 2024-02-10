@@ -14,7 +14,7 @@ int ispalindrome(int s,int e,const string& c){
     int n=s.length();
     int res=0;
     for(int i=0;i<n;i++){
-        //for odd center(i.i)
+        //for odd center(i,i)
         //for even center(i,i+1)
         res+=ispalindrome(i,i,s);
         res+=ispalindrome(i,i+1,s);   
