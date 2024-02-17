@@ -10,21 +10,13 @@ public:
             else{
                 int b=heights[i+1]-heights[i];
                 jumps.push(b);
-                // if(ladders>0){
-                //     ladders--;
-                // }
-                // else if(b<=bricks){
-                //     bricks=bricks-(heights[i+1]-heights[i]);
-                // }
-                // else{
-                //     break;
-                // }
                 if (jumps.size() > ladders) {
                     int largest_jump = jumps.top();
                     jumps.pop();
                     if (largest_jump <= bricks) {
                         bricks -= largest_jump;
-                    } else {
+                    } 
+                    else {
                         break;
                     }
                 }
