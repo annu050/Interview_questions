@@ -15,6 +15,7 @@ public:
         if(!root)return NULL;
         if(root->val<low)return trimBST(root->right,low,high);
         else if(root->val>high)return trimBST(root->left,low,high);
+        //if root is good find the left and right children of the root node 
         root->left=trimBST(root->left,low,high);
         root->right=trimBST(root->right,low,high);
         return root;
