@@ -18,7 +18,6 @@ public:
         for(int i=1;i<n-1;i++){
             ans[i]=p[i-1]*s[i+1];
         }
-        
         return ans;
     }
 };
