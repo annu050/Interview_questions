@@ -1,34 +1,39 @@
 class Solution {
 public:
-    bool solution(int s, vector<int> adj[], vector<bool>& visited1, vector<bool>& visited2) {
-        visited1[s] = true;
-        visited2[s] = true;
-        vector<int> temp = adj[s];
-        for (auto x : temp) {
-            if (!visited1[x]) {
-                if (solution(x, adj, visited1, visited2)) {
-                    return true;
-                }
-            } else if (visited2[x]) {
-                return true;
-            }
-        }
-        visited2[s] = false;
-        return false;
-    }
-
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<int> adj[numCourses];
-        for (auto p : prerequisites) {
-            adj[p[1]].push_back(p[0]);
+        //use of topo sort
+        //if cycle present then false
+        vector<vector<int>>adj(numCourses);
+        for(auto& it:prerequisites){
+            adj[it[0]].push_back(it[1]);
         }
-        vector<bool> visited1(numCourses, false);
-        vector<bool> visited2(numCourses, false);
-        for (int i = 0; i < numCourses; ++i) {
-            if (!visited1[i] && solution(i, adj, visited1, visited2)) {
-                return false;
+        vector<int>indegree(numCourses);
+        for(int i=0;i<numCourses;i++){
+            for(auto it:adj[i]){
+                indegree[it]++;
             }
         }
-        return true;
+        queue<int>q;
+        for(int i=0;i<numCourses;i++){
+            if(indegree[i]==0){
+                q.push(i);
+            }
+        }
+        vector<int>ans;
+        while(!q.empty()){
+            int node=q.front();
+            q.pop();
+            ans.push_back(node);
+            for(int it:adj[node]){
+                indegree[it]--;
+                if(indegree[it]==0){
+                    q.push(it);
+                }
+            }
+        }
+        if(ans.size()==numCourses){
+            return true;
+        }
+        return false;
     }
 };
